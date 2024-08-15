@@ -7,7 +7,7 @@ const outputFile = './config/swg_doc/swagger_doc.json';
 const backupFile = './config/swg_doc/swagger_doc_bk.json';
 const endpointsFiles = [path.resolve(__dirname, './index.js')]; // Adjust the path to your API files
 
-//============ สร้าง Swagger JSON จากไฟล์ API + BackUpFileเก่า ============
+//============ สร้าง Swagger JSON จากไฟล์ API + BackUpFilegd ============
 if (process.env.GEN_SWAGGER_FLAG == 1) {
   try {
     // Backup old file
