@@ -1,0 +1,20 @@
+{
+  "name": "nodejs_swagger",
+  "version": "1.0.0",
+  "description": "สร้างไฟล์ package.json และเพิ่ม  \"start\": \"node index.js\" ภายใต้ scripts\r ## npm init -y\r ติดตั้ง Express และ body-parser ซึ่งจะใช้ในการจัดการข้อมูลในรูปแบบ JSON\r ## npm install\r ## npm install express body-parser",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "swagger-autogen": "^2.23.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
