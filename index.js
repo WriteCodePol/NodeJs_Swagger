@@ -1,6 +1,6 @@
 const express = require('express');
 const swaggerSetup = require('./swagger');
-require('dotenv').config();
+
 
 const app = express();
 const port = 3000;
