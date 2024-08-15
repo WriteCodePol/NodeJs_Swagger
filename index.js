@@ -9,7 +9,7 @@ swaggerSetup(app);
 
 
 // Sample route ddd
-app.get('/', (req, res) => {
+app.get('/Hello', (req, res) => {
   res.send('Hello World!'+req.ip);
 });
 
