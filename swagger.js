@@ -1,22 +1,34 @@
-// const swaggerAutogen = require('swagger-autogen')();
 const swaggerUi = require('swagger-ui-express');
+const fs = require('fs');
+const path = require('path');
+require('dotenv').config();
 
-// const outputFile = './swagger_output.json';
-// const outputFile = './swagger_vercel.json';
+const outputFile = './config/swg_doc/swagger_doc.json';
+const backupFile = './config/swg_doc/swagger_doc_bk.json';
+const endpointsFiles = [path.resolve(__dirname, './index.js')]; // Adjust the path to your API files
 
-const endpointsFiles = ['./index.js']; // แก้ไขตามไฟล์เส้นทาง API ของคุณ
+//============ สร้าง Swagger JSON จากไฟล์ API + BackUpFileเก่า ============
+if (process.env.GEN_SWAGGER_FLAG == 1) {
+  try {
+    // Backup old file
+    fs.copyFileSync(outputFile, backupFile);
+    console.log('File copied successfully');
+  } catch (err) {
+    console.error('Error copying file:', err);
+  }
 
-// สร้าง Swagger JSON จากไฟล์ API
-// swaggerAutogen(outputFile, endpointsFiles);
+  const swaggerAutogen = require('swagger-autogen')();
+  swaggerAutogen(outputFile, endpointsFiles).then(() => {
+    console.log('Swagger JSON generated successfully');
+  }).catch(err => {
+    console.error('Error generating Swagger JSON:', err);
+  });
+}
 
-// เรียกใช้ Swagger JSON ที่สร้างไว้
-const swaggerFile = require('./swagger_output.json');
-// const swaggerFile = require('./swagger_vercel.json');
-// ใช้ Swagger UI เพื่อเปิดหน้า UI สำหรับดู API Documentation
-
+// Use Swagger JSON with Swagger UI
+const swaggerFile = require(outputFile);
 
 module.exports = (app) => {
-    app.use('/swagger', swaggerUi.serve);
-    
-    app.get('/swagger', swaggerUi.setup(swaggerFile));
-  };
+  app.use('/swagger', swaggerUi.serve);
+  app.get('/swagger', swaggerUi.setup(swaggerFile));
+};
