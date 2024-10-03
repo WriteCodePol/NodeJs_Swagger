@@ -5,6 +5,9 @@
 # npm install express swagger-ui-express
 
 
+## ติดตั้ง Jwt 
+# npm install jsonwebtoken
+
 ## ติดตั้ง Express และ body-parser ซึ่งจะใช้ในการจัดการข้อมูลในรูปแบบ JSON
 # npm install express body-parser
 
@@ -12,9 +15,10 @@
 # npm install express swagger-ui-express swagger-jsdoc
 
 ## URL สำหรับเข้า Swagger
-[localhost:3000/](http://localhost:3000/api-docs/)
+[localhost:3000/](http://localhost:3000/swagger/)
 
 # npm install swagger-autogen
+
 
 
 ## สร้างไฟล์ index.js 
