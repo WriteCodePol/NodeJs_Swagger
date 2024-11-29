@@ -11,7 +11,55 @@
     "http"
   ],
   "paths": {
-    "/auth": {
+    "/api-oic/method1": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-auth/method1": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-auth/gettoken": {
       "post": {
         "description": "",
         "parameters": [
@@ -41,7 +89,7 @@
         }
       }
     },
-    "/protected": {
+    "/api-auth/protected": {
       "get": {
         "description": "",
         "parameters": [
@@ -60,16 +108,6 @@
           },
           "403": {
             "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/Hello": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
           }
         }
       }
